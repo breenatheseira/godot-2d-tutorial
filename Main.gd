@@ -7,7 +7,7 @@ var score
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
-	#new_game()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -25,7 +25,8 @@ func new_game():
 	$StartTimer.start()
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")
-
+	get_tree().call_group("mobs","queue_free")
+	
 
 func _on_mob_timer_timeout():
 	# Create a new instance of the Mob scene
